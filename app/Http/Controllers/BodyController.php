@@ -8,6 +8,7 @@ use DB;
 use File;
 use  App\Info;
 use App\Midbody;
+use Storage;
 
 class BodyController extends Controller
 {
@@ -100,13 +101,15 @@ public function top(){
             $new->desc = $request->desc;
             $new->years = $request->years;
             if ($request->image != '') {
-            \File::delete('assets/images/about/'.$new->image);
-                $image = $request->file('image');
-                $ext = $image->getClientOriginalExtension();
-                $new_name = 'aboutusHomeImage'.date('YmD').''.rand().'.'.$ext;
-                $new->image = $new_name;
+            // \File::delete('assets/images/about/'.$new->image);
+            //     $image = $request->file('image');
+            //     $ext = $image->getClientOriginalExtension();
+            //     $new_name = 'aboutusHomeImage'.date('YmD').''.rand().'.'.$ext;
+                 $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
+                $new->image = $path;
                     
-                $image->move('assets/images/about', $new_name);   
+                // $image->move('assets/images/about', $new_name);   
             }
             $save = $new->save();
 
@@ -163,13 +166,15 @@ public function top(){
             $new->title = $request->title;
             $new->desc = $request->desc;
             if ($request->image != '') {
-            \File::delete('assets/images/choose/'.$new->image);
-                $image = $request->file('image');
-                $ext = $image->getClientOriginalExtension();
-                $new_name = 'aboutusHomeImage'.date('YmD').''.rand().'.'.$ext;
-                $new->image = $new_name;
+            // \File::delete('assets/images/choose/'.$new->image);
+            //     $image = $request->file('image');
+            //     $ext = $image->getClientOriginalExtension();
+            //     $new_name = 'aboutusHomeImage'.date('YmD').''.rand().'.'.$ext;
+        $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
+                $new->image = $path;
                     
-                $image->move('assets/images/choose', $new_name);   
+                //$image->move('assets/images/choose', $new_name);   
             }
             $save = $new->save();
 

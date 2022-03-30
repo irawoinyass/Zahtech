@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\SuperAdmin;
 use App\Aboutus;
 use App\Careers;
+use Storage;
 
 class SuperAdminDashboardController extends Controller
 {
@@ -102,13 +103,16 @@ public function Aboutupdate(Request $request){
             $new->title = $request->title;
             $new->desc = $request->desc;
             if ($request->image != '') {
-            \File::delete('assets/images/aboutus/'.$new->image);
-                $image = $request->file('image');
-                $ext = $image->getClientOriginalExtension();
-                $new_name = 'aboutusPageImage'.date('YmD').''.rand().'.'.$ext;
-                $new->image = $new_name;
+            // \File::delete('assets/images/aboutus/'.$new->image);
+            //     $image = $request->file('image');
+            //     $ext = $image->getClientOriginalExtension();
+            //     $new_name = 'aboutusPageImage'.date('YmD').''.rand().'.'.$ext;
+
+        $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
+                $new->image = $path;
                     
-                $image->move('assets/images/aboutus', $new_name);   
+                //$image->move('assets/images/aboutus', $new_name);   
             }
             $save = $new->save();
 
@@ -164,13 +168,15 @@ public function Careersupdate(Request $request){
             $new->title = $request->title;
             $new->desc = $request->desc;
             if ($request->image != '') {
-            \File::delete('assets/images/aboutus/'.$new->image);
-                $image = $request->file('image');
-                $ext = $image->getClientOriginalExtension();
-                $new_name = 'CareersPagesImage'.date('YmD').''.rand().'.'.$ext;
-                $new->image = $new_name;
+            // \File::delete('assets/images/aboutus/'.$new->image);
+            //     $image = $request->file('image');
+            //     $ext = $image->getClientOriginalExtension();
+            //     $new_name = 'CareersPagesImage'.date('YmD').''.rand().'.'.$ext;
+        $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
+                $new->image = $path;
                     
-                $image->move('assets/images/aboutus', $new_name);   
+                //$image->move('assets/images/aboutus', $new_name);   
             }
             $save = $new->save();
 

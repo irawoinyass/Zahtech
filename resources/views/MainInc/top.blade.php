@@ -46,7 +46,7 @@
                             <div class="col-cell header-logo">                                  
                                 <div class="logo-area">
                                     <a href="/">
-                                        <img src="/assets/images/{{$nav->logo}}" alt="logo">  
+                                        <img src="{{$nav->logo}}" alt="logo">  
                                     </a>
                                 </div>
                             </div>

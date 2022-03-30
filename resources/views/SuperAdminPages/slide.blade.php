@@ -86,6 +86,10 @@
 <label for="control-label" style="font-weight: 500; color: #fff;">Desc Color</label>
 <input type="text" name="desc_color" id="desc_color" class="form-control" >
 </div>
+<div class="form-group">
+<label for="control-label" style="font-weight: 500; color: #fff;">BG Color</label>
+<input type="text" name="bgcolor" id="bgcolor" class="form-control" >
+</div>
 <div>
     <div class="loader"></div>
       <button class="btn btn-success" type="submit" value="Add Slide">
@@ -172,7 +176,7 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <img class="img-fluid" src="{{asset('assets/images/slider/'.$slide->image)}}">
+        <img class="img-fluid" src="{{$slide->image}}">
         <h6 >{{$slide->title}}</h6>
         <h5 class="text-center">{{$slide->desc}}</h5>
         @if($slide->button_url != '')

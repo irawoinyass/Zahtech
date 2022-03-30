@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use File;
 use DB;
 use App\Slides;
+use Storage;
 
 class SlideController extends Controller
 {
@@ -34,17 +35,20 @@ public function upload(Request $request){
 
 
 
-    	$image = $request->file('image');
-		$ext = $image->getClientOriginalExtension();
+//     	$image = $request->file('image');
+// 		$ext = $image->getClientOriginalExtension();
 		
-		if($request->file('image')->getSize() > 2097152){
+// 		if($request->file('image')->getSize() > 2097152){
 
-return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
+// return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
 
-		}else{
+// 		}else{
 
-		$new_name = date('YmD').'Slide'.date('YmD').'photo'.rand().'.'.$ext;
-		$image->move('assets/images/slider', $new_name);
+		// $new_name = date('YmD').'Slide'.date('YmD').'photo'.rand().'.'.$ext;
+		// $image->move('assets/images/slider', $new_name);
+
+    		 $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
 
 		$photo = new Slides;
 		
@@ -71,10 +75,16 @@ return response()->json(['message' => 'Picture must not be greater than 2MB', 'c
 		}else{
 			$photo->button_name = $request->link_name;
 		}
+
+			if ($request->bgcolor == '') {
+			$photo->bgcolor = '';
+		}else{
+			$photo->bgcolor = $request->bgcolor;
+		}
 		
 
 		
-		$photo->image = $new_name;
+		$photo->image = $path;
 		$photo->title_color = $request->title_color;
 		$photo->desc_color = $request->desc_color;
 		
@@ -87,7 +97,7 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 
 		}
 
-		}	
+		//}	
 
     	
     	}
@@ -101,7 +111,7 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 	if ($request->ajax()) {
 
 $photo = Slides::find($request->slide_id);
-	\File::delete('assets/images/slider/'.$photo->image);
+	//\File::delete('assets/images/slider/'.$photo->image);
 $delete = $photo->delete();
 
 if ($delete) {
@@ -170,6 +180,13 @@ public function update(Request $request){
 		}else{
 			$photo->button_name = $request->link_name;
 		}
+
+			if ($request->bgcolor == '') {
+			$photo->bgcolor = '';
+		}else{
+			$photo->bgcolor = $request->bgcolor;
+		}
+
 		
 		$photo->title_color = $request->title_color;
 		$photo->desc_color = $request->desc_color;
@@ -190,17 +207,21 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 
 
 
-		$image = $request->file('image');
-		$ext = $image->getClientOriginalExtension();
+// 		$image = $request->file('image');
+// 		$ext = $image->getClientOriginalExtension();
 		
-		if($request->file('image')->getSize() > 2097152){
+// 		if($request->file('image')->getSize() > 2097152){
 
-return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
+// return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
 
-		}else{
+// 		}else{
 
-		$new_name = date('YmD').'Slide'.date('YmD').'photo'.rand().'.'.$ext;
-		$image->move('assets/images/slider', $new_name);
+// 		$new_name = date('YmD').'Slide'.date('YmD').'photo'.rand().'.'.$ext;
+// 		$image->move('assets/images/slider', $new_name);
+
+
+			 $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
 
 			$photo = Slides::find($request->slide_id);
 	
@@ -227,10 +248,17 @@ return response()->json(['message' => 'Picture must not be greater than 2MB', 'c
 		}else{
 			$photo->button_name = $request->link_name;
 		}
+
+			if ($request->bgcolor == '') {
+			$photo->bgcolor = '';
+		}else{
+			$photo->bgcolor = $request->bgcolor;
+		}
+
 		
-	\File::delete('assets/images/slider/'.$photo->image);
+	//\File::delete('assets/images/slider/'.$photo->image);
 		
-		$photo->image = $new_name;
+		$photo->image = $path;
 		$photo->title_color = $request->title_color;
 		$photo->desc_color = $request->desc_color;
 		$save = $photo->save();
@@ -242,7 +270,7 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 
 		}
 
-		}	
+		//}	
 
 
 

@@ -84,7 +84,7 @@
                                                     <td><a href="/superadmin/careers/edit/{{$car->careers_id}}" class="btn btn-warning btn-sm btn-icon"><i class="fa fa-pen"></i></a></td>
                                                     <td>{{$car->title}}</td>
                                                     <td>{{$car->desc}}</td>
-                                                    <td><img src="/assets/images/about/{{$car->image}}" width="100px;"></td>
+                                                    <td><img src="{{$car->image}}" width="100px;"></td>
                                                   </tr>
                                                   <?php $no++;?>
                                                 @endforeach

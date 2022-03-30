@@ -48,7 +48,7 @@
 <div class="form-group">
           <label style="">Logo</label>
            <input type="file" class="form-control" id="logo" name="logo">
-           <img src="/assets/images/{{$nav->logo}}" width="100px;">
+           <img src="{{$nav->logo}}" width="100px;">
          <small style=" font-weight: 700;"></small>
         </div>
 

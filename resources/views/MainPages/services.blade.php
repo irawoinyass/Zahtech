@@ -31,9 +31,7 @@
                     <div class="row">
 
                          <div class="sec-title mb-35">
-                                <h2 class="title pb-30">
-                                    {{$service->title}}
-                                </h2>
+                             
                                 <p class="">{!! $service->desc !!}</p>
                             </div>
 

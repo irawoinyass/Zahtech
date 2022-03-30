@@ -84,7 +84,7 @@
                                                     <td><a href="/superadmin/body/midbody/edit/{{$mid->mid_body_id}}" class="btn btn-warning btn-sm btn-icon"><i class="fa fa-pen"></i></a></td>
                                                     <td>{{$mid->title}}</td>
                                                     <td>{{$mid->desc}}</td>
-                                                    <td><img src="/assets/images/choose/{{$mid->image}}" width="100px;"></td>
+                                                    <td><img src="{{$mid->image}}" width="100px;"></td>
                                                   </tr>
                                                   <?php $no++;?>
                                                 @endforeach

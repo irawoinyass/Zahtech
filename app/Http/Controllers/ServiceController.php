@@ -7,6 +7,7 @@ use DB;
 use FIlE;
 use App\Service;
 use App\SubService;
+use Storage;
 
 class ServiceController extends Controller
 {
@@ -33,23 +34,26 @@ class ServiceController extends Controller
 
     	if ($request->ajax()) {
     		
-    		$image = $request->file('image');
-		$ext = $image->getClientOriginalExtension();
+//     		$image = $request->file('image');
+// 		$ext = $image->getClientOriginalExtension();
 		
-		if($request->file('image')->getSize() > 2097152){
+// 		if($request->file('image')->getSize() > 2097152){
 
-return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
+// return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
 
-		}else{
+// 		}else{
 
-		$new_name = date('YmD').'Services'.date('YmD').'photo'.rand().'.'.$ext;
-		$image->move('assets/images/services', $new_name);
+		// $new_name = date('YmD').'Services'.date('YmD').'photo'.rand().'.'.$ext;
+		// $image->move('assets/images/services', $new_name);
+
+			$path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
 
 		$service = new Service;
 		$service->title = $request->title;
 		$service->short_desc = $request->short_desc;
 		$service->desc = $request->desc;
-		$service->image = $new_name;
+		$service->image = $path;
 		$save = $service->save();
 
 		if ($save) {
@@ -59,7 +63,7 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 
 		}
 
-		}	
+		//}	
 
     	}
     }
@@ -98,23 +102,25 @@ return response()->json(['message' => 'Error, Please Try Again', 'class_name' =>
 		$service->desc = $request->desc;
 		if ($request->file('image') != '') {
 
-				if($request->file('image')->getSize() > 2097152){
+// 				if($request->file('image')->getSize() > 2097152){
 
-return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
+// return response()->json(['message' => 'Picture must not be greater than 2MB', 'class_name' => 'alert-danger']);
 
-		}else{
+// 		}else{
 
-		\File::delete('assets/images/services/'.$service->image);
+// 		\File::delete('assets/images/services/'.$service->image);
 		
 
-		$image = $request->file('image');
-		$ext = $image->getClientOriginalExtension();
+// 		$image = $request->file('image');
+// 		$ext = $image->getClientOriginalExtension();
 		
-		$new_name = date('YmD').'ServicesUpdate'.date('YmD').'photo'.rand().'.'.$ext;
-		$image->move('assets/images/services', $new_name);
-		$service->image = $new_name;
+// 		$new_name = date('YmD').'ServicesUpdate'.date('YmD').'photo'.rand().'.'.$ext;
+// 		$image->move('assets/images/services', $new_name);
+			$path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('image'));
+        $path = Storage::disk('s3')->url($path);
+		$service->image = $path;
 
-		}
+		//}
 				
 		}
 	

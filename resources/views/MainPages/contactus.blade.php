@@ -25,7 +25,7 @@
 
             <!-- Contact Section Start -->
             <div class="rs-contact main-home office-modify1 responsive pb-100 md-pb-70">
-                <div class="row margin-0">
+                <!-- <div class="row margin-0">
                     <div class="col-lg-2 padding-0">
                         
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="col-lg-2"></div>
-                </div>
+                </div> -->
                 <!-- Contact Icons Section End -->
                 <div class="rs-contact pt-100 md-pt-70">
                     <div class="container">

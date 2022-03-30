@@ -84,7 +84,7 @@
                                                     <td><a href="/superadmin/aboutus/edit/{{$ab->aboutus_id}}" class="btn btn-warning btn-sm btn-icon"><i class="fa fa-pen"></i></a></td>
                                                     <td>{{$ab->title}}</td>
                                                     <td>{{$ab->desc}}</td>
-                                                    <td><img src="/assets/images/about/{{$ab->image}}" width="100px;"></td>
+                                                    <td><img src="{{$ab->image}}" width="100px;"></td>
                                                   </tr>
                                                   <?php $no++;?>
                                                 @endforeach

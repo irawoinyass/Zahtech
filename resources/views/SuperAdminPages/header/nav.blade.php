@@ -86,7 +86,7 @@
                                                   <tr>
                                                     <td>{{$no}}</td>
                                                     <td><a href="/superadmin/header/nav/edit/{{$nav->nav_id}}" class="btn btn-warning btn-sm btn-icon"><i class="fa fa-pen"></i></a></td>
-                                                    <td><img src="/assets/images/{{$nav->logo}}" class="img-fluid" width="100px;"></td>
+                                                    <td><img src="{{$nav->logo}}" class="img-fluid" width="100px;"></td>
                                                     <td>{{$nav->bgcolor}}</td>
                                                     <td>{{$nav->color}}</td>
                                                     <td>{{$nav->over}}</td>

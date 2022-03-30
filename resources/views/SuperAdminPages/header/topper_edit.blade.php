@@ -41,14 +41,14 @@
       <div class="card shadow">
           <div class="card-body">
           
-            <form id="update_topper" method="POST" enctype="multipart/form-data">
+<form id="update_topper" method="POST" enctype="multipart/form-data">
  
  {{ csrf_field() }}
 
 <div class="form-group">
           <label style="">Favicon</label>
            <input type="file" class="form-control" id="icon" name="icon">
-           <img src="/assets/images/{{$topper->icon}}">
+           <img src="{{$topper->icon}}">
          <small style=" font-weight: 700;"></small>
         </div>
 

@@ -9,6 +9,7 @@ use File;
 use App\Grid;
 use App\Nav;
 use App\BodyTop;
+use Storage;
 
 class HeaderController extends Controller
 {
@@ -49,13 +50,15 @@ class HeaderController extends Controller
 	
 			$new->company_desc = $request->company_desc;
 			if ($request->icon != '') {
-			\File::delete('assets/images/'.$new->icon);
-				$image = $request->file('icon');
-				$ext = $image->getClientOriginalExtension();
-				$new_name = 'favicon'.date('YmD').''.rand().'.'.$ext;
-				$new->icon = $new_name;
+			// \File::delete('assets/images/'.$new->icon);
+			// 	$image = $request->file('icon');
+			// 	$ext = $image->getClientOriginalExtension();
+			// 	$new_name = 'favicon'.date('YmD').''.rand().'.'.$ext;
+                 $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('icon'));
+        $path = Storage::disk('s3')->url($path);
+				$new->icon = $path;
         			
-				$image->move('assets/images', $new_name);	
+				//$image->move('assets/images', $new_name);	
 			}
 
 			
@@ -162,12 +165,14 @@ public function nav_edit($id){
             $new->over = $request->over;
             $new->out = $request->out;
             if ($request->logo != '') {
-            \File::delete('assets/images/'.$new->logo);
-                $image = $request->file('logo');
-                $ext = $image->getClientOriginalExtension();
-                $new_name = 'favicon'.date('YmD').''.rand().'.'.$ext;
-                $new->logo = $new_name;
-                $image->move('assets/images', $new_name);   
+            // \File::delete('assets/images/'.$new->logo);
+            //     $image = $request->file('logo');
+            //     $ext = $image->getClientOriginalExtension();
+            //     $new_name = 'favicon'.date('YmD').''.rand().'.'.$ext;
+                 $path = Storage::disk('s3')->put('ZAHTECH_PIC', $request->file('logo'));
+        $path = Storage::disk('s3')->url($path);
+                $new->logo = $path;
+               // $image->move('assets/images', $new_name);   
             }
 
             $save = $new->save();

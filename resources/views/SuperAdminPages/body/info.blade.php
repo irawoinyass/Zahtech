@@ -89,7 +89,7 @@
                                                     <td>{{$info->short_two}}</td>
                                                     <td>{{$info->desc}}</td>
                                                     <td>{{$info->years}}</td>
-                                                    <td><img src="/assets/images/about/{{$info->image}}" width="100px;"></td>
+                                                    <td><img src="{{$info->image}}" width="100px;"></td>
                                                   </tr>
                                                   <?php $no++;?>
                                                 @endforeach

@@ -64,7 +64,7 @@
             <input type="file" name="image" id="image" accept="image/jpeg,image/jpg,image/png," class="form-control">
 <small style="color: #fff; font-weight: 500;">Optional</small>
 <div>
-    <img class="img-fluid" src="{{asset('assets/images/slider/'.$slide->image)}}" width="200">
+    <img class="img-fluid" src="{{$slide->image}}" width="200">
 </div>
 <input type="hidden" name="slide_id" id="slide_id" value="{{$slide->slide_id}}" >
 </div>
@@ -90,7 +90,10 @@
 <label for="control-label" style="font-weight: 500; color: #fff;">Desc Color</label>
 <input type="text" name="desc_color" id="desc_color" class="form-control" value="{{$slide->desc_color}}">
 </div>
-
+<div class="form-group">
+<label for="control-label" style="font-weight: 500; color: #fff;">BG Color</label>
+<input type="text" name="bgcolor" id="bgcolor" class="form-control" value="{{$slide->bgcolor}}">
+</div>
 
             <div>
     <div class="loader"></div>

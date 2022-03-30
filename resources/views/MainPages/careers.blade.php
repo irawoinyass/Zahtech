@@ -44,7 +44,8 @@
 
  <div class="col-lg-6 pr-33 md-pr-15 md-mb-50">
                             <div class="images-part">
-                                <img src="/assets/images/about/{{$careers->image}}" alt="Images">
+                                <img src="{{$careers->image}}" alt="Images">
+                                <!-- <img src="/assets/images/off2.jpg" alt="Images"> -->
                             </div>
                         </div>
 

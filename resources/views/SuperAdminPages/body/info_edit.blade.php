@@ -85,7 +85,7 @@
             <input type="file" name="image" id="image" accept="image/jpeg,image/jpg,image/png," class="form-control">
 <small style="color: #fff; font-weight: 500;">Optional</small>
 <div>
-    <img class="img-fluid" src="{{asset('assets/images/about/'.$info->image)}}" width="200">
+    <img class="img-fluid" src="{{$info->image}}" width="200">
 </div>
 </div>
          

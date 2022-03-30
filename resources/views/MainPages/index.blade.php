@@ -7,7 +7,7 @@
                     <div id="nivoSlider" class="slides">
                         <?php $no = 1;?>
                         @foreach($slides as $slide)
-                        <img src="/assets/images/slider/{{$slide->image}}" alt="" title="#slide-{{$no}}" />
+                        <img src="{{$slide->image}}" alt="" title="#slide-{{$no}}" />
                         <?php $no++;?>
                         @endforeach
                     </div>
@@ -18,11 +18,22 @@
                     <div id="slide-{{$nos}}" class="slider-direction">
                         <div class="content-part">
                             <div class="container">
+
+                                @if($slide->bgcolor == '')
                                 <div class="slider-des">
                                     <!-- <div class="sl-subtitle">Sustainable Finance</div> -->
                                     <h3 class="sl-title" style="font-size: 64px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
                                 </div>
                                 <div class="desc" style="color: <?php echo $slide->desc_color;?> !important;">{{$slide->desc}}</div>
+                                @else
+                                <div style="background: <?php echo $slide->bgcolor;?>; opacity:0.6;">
+                                <div class="slider-des"> 
+                                    <!-- <div class="sl-subtitle">Sustainable Finance</div> -->
+                                    <h3 class="sl-title" style="font-size: 64px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
+                                </div>
+                                <div class="desc" style="color: <?php echo $slide->desc_color;?> !important;">{{$slide->desc}}</div>
+                            </div>
+                            @endif
 
 @if($slide->button_url != '')
 
@@ -92,11 +103,11 @@
                         @foreach($services as $service) 
                         <div class="service-wrap">
                             <div class="image-part">
-                                <img src="/assets/images/services/{{$service->image}}" alt="">
+                                <img src="{{$service->image}}" alt="">
                             </div>
                             <div class="content-part">
                                 <h3 class="title"><a href="/services/{{$service->title}}">{{$service->title}}</a></h3>
-                                <div class="desc">{{$service->short_desc}}</div>
+                                <div class="desc">{{$service->short_desc}}<a href="/services/{{$service->title}}"> read more</a></div>
                             </div>
                         </div>
                        
@@ -144,7 +155,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="about-img">
-                                <img src="/assets/images/about/{{$info->image}}" alt="images">
+                                <img src="{{$info->image}}" alt="images">
                                 <div class="working-experiance" style="background: <?php echo $grid->bgcolor;?> !important;">
                                     <div class="experience-year">
                                         <div class="count-year plus"><span class="sub-text" style="color: <?php echo $grid->color;?> !important;">{{$info->years}}</span></div>
@@ -183,7 +194,7 @@
                         <div class="col-lg-6">
                             <div class="rs-videos choose-video">
                                 <div class="images-video">
-                                    <img src="/assets/images/choose/{{$mid->image}}" alt="images">
+                                    <img src="{{$mid->image}}" alt="images">
                                 </div>
                                 <!-- <div class="animate-border">
                                     <a class="popup-border" href="https://www.youtube.com/watch?v=FMvA5fyZ338">

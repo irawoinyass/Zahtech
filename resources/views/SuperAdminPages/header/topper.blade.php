@@ -82,7 +82,7 @@
                                                   <tr>
                                                     <td>{{$no}}</td>
                                                     <td><a href="/superadmin/header/topper/edit/{{$topper->topper_id}}" class="btn btn-warning btn-sm btn-icon"><i class="fa fa-pen"></i></a></td>
-                                                    <td><img src="/assets/images/{{$topper->icon}}"></td>
+                                                    <td><img src="{{$topper->icon}}"></td>
                                                     <td>{{$topper->company_name}}</td>
                                                     <td>{{$topper->company_desc}}</td>
                                                   </tr>

@@ -157,7 +157,7 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">
-        <img class="img-fluid" src="{{asset('assets/images/services/'.$service->image)}}">
+        <img class="img-fluid" src="{{$service->image}}">
         <h6 >{{$service->title}}</h6>
         <h5 class="text-center">{{$service->short_desc}}</h5>
        

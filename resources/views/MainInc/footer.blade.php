@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12 md-mb-10">
                             <div class="footer-logo mb-40">
-                                <a href="/"><img src="/assets/images/{{$nav->logo}}" alt=""></a>
+                                <a href="/"><img src="{{$nav->logo}}" alt=""></a>
                             </div>
                               <div class="textwidget white-color pb-40"><p>{{$topper->company_desc}}</p>
                               </div>

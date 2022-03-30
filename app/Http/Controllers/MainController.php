@@ -28,7 +28,7 @@ class MainController extends Controller
 		$info = Info::find(1);
 		 $mid = Midbody::find(1);
 		$slides = Slides::all();
-		$services = Service::take(6)->get();
+		$services = Service::take(4)->get();
 		$title = $topper->company_name;
 		$menus = Service::with('sub')->get();
 

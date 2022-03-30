@@ -32,9 +32,9 @@
                        
                         <div class="col-lg-6 ">
                             <div class="sec-title">
-                                <h2 class="title pb-22">
+                                <h5 class="title pb-22" style="font-size: 28px;">
                                     {{$aboutus->title}}
-                                </h2>
+                                </h5>
                                 <span class="sub-text big">{!! $aboutus->desc !!}</span>
 
                                 
@@ -46,7 +46,7 @@
 
  <div class="col-lg-6 pr-33 md-pr-15 md-mb-50">
                             <div class="images-part">
-                                <img src="/assets/images/about/{{$aboutus->image}}" alt="Images">
+                                <img src="{{$aboutus->image}}" alt="Images">
                             </div>
                         </div>
 
