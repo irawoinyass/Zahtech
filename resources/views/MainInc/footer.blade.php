@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="copyright text-lg-start text-center">
-                                <p>© {{$topper->company_name}}. All Rights Reserved.</p>
+                                <p>© 2012 - {{date('Y')}} {{$topper->company_name}}. All Rights Reserved.</p>
                             </div>
                         </div>
                     </div>

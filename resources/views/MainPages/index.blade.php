@@ -22,14 +22,14 @@
                                 @if($slide->bgcolor == '')
                                 <div class="slider-des">
                                     <!-- <div class="sl-subtitle">Sustainable Finance</div> -->
-                                    <h3 class="sl-title" style="font-size: 64px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
+                                    <h3 class="sl-title" style="font-size: 30px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
                                 </div>
                                 <div class="desc" style="color: <?php echo $slide->desc_color;?> !important;">{{$slide->desc}}</div>
                                 @else
                                 <div style="background: <?php echo $slide->bgcolor;?>; opacity:0.6;">
                                 <div class="slider-des"> 
                                     <!-- <div class="sl-subtitle">Sustainable Finance</div> -->
-                                    <h3 class="sl-title" style="font-size: 64px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
+                                    <h3 class="sl-title" style="font-size: 30px; color: <?php echo $slide->title_color;?> !important;">{{$slide->title}}</h3>
                                 </div>
                                 <div class="desc" style="color: <?php echo $slide->desc_color;?> !important;">{{$slide->desc}}</div>
                             </div>
@@ -65,7 +65,7 @@
                     <div class="sec-title2 d-flex align-items-center mb-60 md-mb-40">
                         <div class="first-half">
                             <div class="sub-text" style="color: <?php echo $grid->bgcolor;?> !important;">{{$body_top->title}}</div>
-                            <h2 class="title mb-0 md-pb-20">{{$body_top->short_one}} <span style="color: <?php echo $grid->bgcolor;?> !important;">{{$body_top->short_two}}</span></h2>
+                            <h2 class="title mb-0 md-pb-20" style="font-size: 30px !important;">{{$body_top->short_one}} <span style="color: <?php echo $grid->bgcolor;?> !important;">{{$body_top->short_two}}</span></h2>
                         </div>
                         <div class="last-half">
                             <p class="desc mb-0 pl-20 md-pl-15">{{$body_top->desc}}</p>
@@ -139,8 +139,8 @@
                         <div class="col-lg-6 pr-70 md-pr-15 md-mb-50">
                            <div class="sec-title2 mb-30">
                                 <div class="sub-text" style="color: <?php echo $grid->bgcolor;?> !important;">{{$info->title}}</div>
-                                <h2 class="title mb-23">{{$info->short_one}} <span style="color: <?php echo $grid->bgcolor;?> !important;">{{$info->short_two}} </span></h2>
-                                <p class="desc mb-0">{{$info->desc}}</p>
+                                <h2 class="title mb-23" style="font-size: 25px !important;">{{$info->short_one}} <span style="color: <?php echo $grid->bgcolor;?> !important;">{{$info->short_two}} </span></h2>
+                                <p class="desc mb-0">{!! $info->desc !!}</p>
                            </div>
                             <!-- Skillbar Section Start -->
                             <div class="rs-skillbar style1">
