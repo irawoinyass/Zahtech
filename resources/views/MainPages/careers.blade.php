@@ -47,6 +47,15 @@
                                 <img src="{{$careers->image}}" alt="Images">
                                 <!-- <img src="/assets/images/off2.jpg" alt="Images"> -->
                             </div>
+                            <br>
+                           
+
+
+<h5>Work autonomously.</h5>
+<p>You have ownership over work that directly impacts the business. You can move fast, and learn even faster.</p>
+
+<h5>Our culture</h5>
+<p>We're building a culture where personal and professional growth are just as important as business growth.</p>
                         </div>
 
                     </div>
